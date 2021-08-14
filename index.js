@@ -10,6 +10,7 @@ function createGrid(size) {
       container.appendChild(square);
     }
   }
+
   const clearButton = document.querySelector(".clearButton");
   clearButton.addEventListener("click", onGameClear);
 }
@@ -21,8 +22,18 @@ function onSquareHover(e) {
 function onGameClear(e) {
   const allSquares = document.querySelectorAll(".square");
   allSquares.forEach((square) => {
-    square.classList.remove("filled");
+    square.remove();
   });
+
+  let size;
+  do {
+    size = prompt(
+      "Enter Etch-a-Sketch size (Default size: 16, Max size: 100):",
+      16
+    );
+  } while (size > 100);
+  if (!size) size = 16;
+  createGrid(size);
 }
 
-createGrid(50);
+createGrid(16);
