@@ -1,13 +1,13 @@
 function createGrid(size) {
-  const container = document.querySelector(".game");
-  container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  const game = document.querySelector(".game");
+  game.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
       const square = document.createElement("div");
       square.classList.add("square");
       square.addEventListener("mouseover", onSquareHover);
-      container.appendChild(square);
+      game.appendChild(square);
     }
   }
 
